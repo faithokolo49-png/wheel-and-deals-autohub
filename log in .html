@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>log in </title>
+  <style>
+    
+    body { font-family: Arial, sans-serif; background: #c4c7ca; padding: 20px; }
+    form { max-width: 600px; margin: auto; background: #78bcec0d; padding: 20px; border-radius: 8px; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+    .flex { display: flex; gap: 10px; }
+    .flex > div { flex: 1; }
+    .image-preview { display: flex; flex-wrap: wrap; margin-top: 10px; }
+    .image-preview img { width: 100px; margin: 0 10px 10px 0; object-fit: cover; }
+    button { margin-top: 20px; padding: 10px 20px; background: #054ef9; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .optional { font-weight: normal; font-size: 0.9em; color: #d95b5b; }
+  </style>
+</head>
+<body>
+
+  <h1>Buy your Car</h1>
+  <p>Fill out this form to list your vehicle—we will reach out via the contact info you provide.</p>
+  
+  <form id="Buy Car Form" enctype="multipart/form-data" autocomplete="on">
+    <!-- Seller Info -->
+    <label for="buyerName">Your Full Name</label>
+    <input type="text" id="buyerName" name="sellerName" placeholder="e.g., Jane Doe" required autocomplete="name" />
+
+    <label for="buyerEmail">Email Address</label>
+    <input type="email" id="sellerEmail" name="sellerEmail" placeholder="e.g., jane@example.com" required autocomplete="email" />
+
+    <label for="buyerPhone">Phone Number <span class="optional">(optional)</span></label>
+    <input type="tel" id="buyerPhone" name="buyerPhone" placeholder="e.g., +1234567890" autocomplete="tel" />
+
+    <!-- Car Details -->
+    <label for="make">Make</label>
+    <input type="text" id="make" name="make" required autocomplete="organization" />
+
+    <label for="model">Model</label>
+    <input type="text" id="model" name="model" required />
+
+    <div class="flex">
+      <div>
+        <label for="year">Year</label>
+        <input type="number" id="year" name="year" min="1900" max="2099" required />
+      </div>
+      <div>
+        <label for="price">Price (Naire)</label>
+        <input type="number" id="price" name="price" min="0" step="0.01" required />
+      </div>
+    </div>
+
+    <label for="mileage">Mileage (km)</label>
+    <input type="number" id="mileage" name="mileage" min="0" required />
+
+    <label for="transmission">Transmission</label>
+    <select id="transmission" name="transmission" required>
+      <option value="">Select...</option>
+      <option value="Automatic">Automatic</option>
+      <option value="Manual">Manual</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" placeholder="Add any extra details..."></textarea>
+
+    <label for="images">Upload Images</label>
+    <input type="file" id="images" name="images[]" accept="image/*" multiple required />
+    <div class="image-preview" id="preview"></div>
+
+    <button type="submit">Submit Listing</button>
+  </form>
+
+ 
